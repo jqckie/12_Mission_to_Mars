@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+<!-- Creates the Overall Grid -->
+<!-- Body Content -->
+  <div class="row"> <!-- 1st row -->
+      <div class="contenttable col-md-12">
+        <h2>Latest Mars News</h2>
+        <h3>{{ mars.news }}</h3>
+        <p>{{ mars.paragraph }}</p>
+      </div>
+  </div>
+  <!-- 2nd row -->
+  <div class="row"> 
+      <div class="contenttable col-md-8 column"> 
+        <h2>Featured Mars Image</h2>
+        <img style="width:100%" src="{{ mars.image }}" alt="Featured Mars Image">
+      </div>
+      <div class="contenttable col-md-4 column"> 
+        <h2>Current Weather on Mars</h2>
+        <p>{{ mars.weather }}</p>
+      </div>
+      <div class="contenttable col-md-4 column"> 
+        <h2>Mars Facts</h2>
+        <p>{{ mars.facts | safe}}</p>
+      </div>
+  </div>
+  <!-- 3rd row -->
+  <div class="row"> 
+    <div class="contenttable col-md-12" style="text-align: center">
+      <h2>Mars Hemispheres</h2>
+      <hr style="border: .5px solid #ededed;" />
+      {% for hemisphere in mars.hemispheres %}
+        <div class = "col-md-6">
+          <div class = "thumbnail">
+            <img src = "{{hemisphere.img_url}}">
+            <h3>{{hemisphere.title}}</h3>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
