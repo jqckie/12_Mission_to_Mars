@@ -1,4 +1,4 @@
-# Webscraped Mission to Mars Flask App
+# Webscrape Mission to Mars Flask App
 
 ## Instructions
 * Run [app.py](/Mission to Mars/app.py) to launch the Flask app and display scraped data onto an HTML page.
